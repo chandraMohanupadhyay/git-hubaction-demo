@@ -1,0 +1,20 @@
+name: variable_job
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch:
+env:
+  APP_NAME: Nginx
+  ENVIRONMENT: dev
+
+jobs:
+  varible_job:
+    runs-on: ubuntu-latest
+    env:
+      getting: Hello
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: New app
+        run: echo "$getting This is the new $APP_NAME app on the enviroment $ENVIRONMENT."
