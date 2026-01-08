@@ -1,18 +1,19 @@
-name: config_varible
+name: config_variable
 
-# Controls when the workflow will run
 on:
   workflow_dispatch:
 
 jobs:
-  varible_job:
+  variable_job:
     runs-on: ubuntu-latest
+
+    # Job-level variable
+    env:
+      getting: Hello
 
     steps:
       - uses: actions/checkout@v4
-        env:
-          getting: Hello
-  
 
       - name: New app
-        run: echo "$getting This is the new ${{vars.APP_NAME}} app on the enviroment ${{vars.ENVIRONMENT}}."
+        run: |
+          echo "$getting This is the new ${{ vars.APP_NAME }} app in the environment ${{ vars.ENVIRONMENT }}."
