@@ -15,4 +15,4 @@ jobs:
   
 
       - name: New app
-        run: echo "$getting This is the new ${{var.APP_NAME}} app on the enviroment ${{var.ENVIRONMENT}}."
+        run: echo "$getting This is the new ${{vars.APP_NAME}} app on the enviroment ${{vars.ENVIRONMENT}}."
