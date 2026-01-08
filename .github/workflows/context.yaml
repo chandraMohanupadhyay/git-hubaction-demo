@@ -1,0 +1,26 @@
+name: context_variable
+
+on:
+  workflow_dispatch:
+
+jobs:
+  context_variable_job:
+    runs-on: ubuntu-latest
+
+    # Job-level variable
+    env:
+      getting: Hello
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: New app
+        run: |
+          echo "$getting This is the new ${{vars.APP_NAME }} app in the environment ${{vars.ENVIRONMENT }}."
+
+      - name: Print GitHub context
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Triggered by: ${{ github.actor }}"
+          echo "Branch: ${{ github.ref_name }}"
+           
